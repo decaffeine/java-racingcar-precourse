@@ -13,7 +13,7 @@ public class Car {
         return position;
     }
 
-    public void attempt(int standard) {
+    public void tryToMove(int standard) {
         if (standard >= 4) {
             move();
         }
@@ -22,5 +22,9 @@ public class Car {
     private void move() {
         this.position++;
     }
-    
+
+    public String getPositionToString() {
+        return new String(new char[position]).replace("\0", "-");
+    }
+
 }
