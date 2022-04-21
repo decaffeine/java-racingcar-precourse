@@ -16,7 +16,7 @@ public class CarNameInputView {
     private static InputStatus status = InputStatus.INPUT_IN_PROGRESS;
 
     public static Cars get() {
-        Cars cars = null; // null 말고 다른 좋은 방법??
+        Cars cars = null; // TODO : null 말고 다른 좋은 방법??
         while (status.isContinue()) {
             cars = getCarsFromInput();
         }
