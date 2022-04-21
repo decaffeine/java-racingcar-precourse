@@ -29,6 +29,10 @@ public class Car {
         this.position++;
     }
 
+    public void print() {
+        System.out.println(name + " : " + getPositionToString());
+    }
+
     public String getPositionToString() {
         return new String(new char[position]).replace("\0", "-");
     }
