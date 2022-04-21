@@ -34,6 +34,16 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    @Test
+    void 쉼표가_아닌_구분자에_대한_예외_처리() {
+        assertSimpleTest(
+                () -> {
+                    runException("pobi.javaj");
+                    assertThat(output()).contains(ERROR_MESSAGE);
+                }
+        );
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});

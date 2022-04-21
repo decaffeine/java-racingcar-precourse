@@ -7,22 +7,38 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Pattern;
+import racingcar.constant.InputStatus;
 import racingcar.domain.Cars;
 
 public class CarNameInputView {
 
     private static final Pattern pattern = Pattern.compile("^[a-zA-Z,]*$");
+    private static InputStatus status = InputStatus.INPUT_IN_PROGRESS;
 
     public static Cars get() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,)기준으로 구분)");
-        String input = Console.readLine();
-        validateConsoleInput(input);
+        Cars cars = null;
+        while (status.isContinue()) {
+            cars = getCarsFromInput();
+        }
+        return cars;
+    }
 
-        List<String> names = convertToList(input);
-//        return Cars.create(names);
-//
-//        while ()
+    private static Cars getCarsFromInput() {
+        try {
+            String input = getSingleInput();
+            validateConsoleInput(input);
+            status = InputStatus.INPUT_END;
+            return new Cars(convertToList(input));
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+            status = InputStatus.INPUT_IN_PROGRESS;
+        }
         return null;
+    }
+
+    private static String getSingleInput() {
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,)기준으로 구분)");
+        return Console.readLine();
     }
 
     private static void validateConsoleInput(String input) {

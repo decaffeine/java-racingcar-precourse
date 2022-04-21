@@ -9,8 +9,7 @@ public class CarsTest {
     @Test
     void carsTryToMove() {
         Cars cars = new Cars(
-                Arrays.asList(new Car("yoshi"),
-                             new Car("pika"))
+                Arrays.asList("yoshi", "kirby")
         );
         cars.tryToMove(Arrays.asList(3,7));
         cars.tryToMove(Arrays.asList(8,2));

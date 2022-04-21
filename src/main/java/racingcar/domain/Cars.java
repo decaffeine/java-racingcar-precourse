@@ -1,12 +1,15 @@
 package racingcar.domain;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Cars {
-    private List<Car> cars;
+    private final List<Car> cars = new ArrayList<>();
 
-    public Cars(List<Car> cars) {
-        this.cars = cars;
+    public Cars(List<String> carNames) {
+        for (String name : carNames) {
+            this.cars.add(new Car(name));
+        }
     }
 
     public Car get(int location) {
