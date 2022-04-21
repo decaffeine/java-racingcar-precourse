@@ -16,7 +16,7 @@ public class CarNameInputView {
     private static InputStatus status = InputStatus.INPUT_IN_PROGRESS;
 
     public static Cars get() {
-        Cars cars = null;
+        Cars cars = null; // null 말고 다른 좋은 방법??
         while (status.isContinue()) {
             cars = getCarsFromInput();
         }
@@ -25,7 +25,7 @@ public class CarNameInputView {
 
     private static Cars getCarsFromInput() {
         try {
-            String input = getSingleInput();
+            String input = getConsoleInput();
             validateConsoleInput(input);
             status = InputStatus.INPUT_END;
             return new Cars(convertToList(input));
@@ -36,7 +36,7 @@ public class CarNameInputView {
         return null;
     }
 
-    private static String getSingleInput() {
+    private static String getConsoleInput() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,)기준으로 구분)");
         return Console.readLine();
     }
