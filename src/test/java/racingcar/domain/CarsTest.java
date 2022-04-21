@@ -10,7 +10,7 @@ public class CarsTest {
     void carsTryToMove() {
         Cars cars = new Cars(
                 Arrays.asList(new Car("yoshi"),
-                             new Car("pikachu"))
+                             new Car("pika"))
         );
         cars.tryToMove(Arrays.asList(3,7));
         cars.tryToMove(Arrays.asList(8,2));
