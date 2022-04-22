@@ -11,11 +11,13 @@ public class CarsTest {
         Cars cars = new Cars(
                 Arrays.asList("yoshi", "kirby")
         );
+        Position ONE = new Position(1);
+
         cars.tryToMove(Arrays.asList(3,7));
         cars.tryToMove(Arrays.asList(8,2));
         cars.tryToMove(Arrays.asList(1,1));
 
-        assertThat(cars.get(0).getPosition()).isEqualTo(1);
-        assertThat(cars.get(1).getPosition()).isEqualTo(1);
+        assertThat(cars.get(0).getPosition()).isEqualTo(ONE);
+        assertThat(cars.get(1).getPosition()).isEqualTo(ONE);
     }
 }

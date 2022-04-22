@@ -16,9 +16,7 @@ public class Application {
             game.race();
         }
 
-        printResult(game);
+        game.printResult();
     }
 
-    private static void printResult(Game game) {
-    }
 }

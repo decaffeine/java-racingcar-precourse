@@ -23,4 +23,9 @@ public class Game {
         numberOfAttempts.subtract();
     }
 
+    public void printResult() {
+        cars.getTheFastest();
+        // TODO 우승자가 2명 이상일 경우
+    }
+
 }

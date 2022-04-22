@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Cars {
@@ -32,5 +33,12 @@ public class Cars {
         for (Car car : cars) {
             car.print();
         }
+    }
+
+    public Cars getTheFastest() {
+        Collections.sort(cars, Collections.reverseOrder());
+        Position position = cars.get(0).getPosition();
+        return null;
+        //return cars.get(0);
     }
 }
