@@ -34,6 +34,14 @@ public class Cars {
         }
     }
 
+    public String getNames() {
+        List<String> names = new ArrayList<>();
+        for (Car car : cars) {
+            names.add(car.getName());
+        }
+        return String.join(",", names);
+    }
+
     public void print() {
         System.out.println();
         for (Car car : cars) {

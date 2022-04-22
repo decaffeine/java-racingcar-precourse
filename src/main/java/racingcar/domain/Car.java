@@ -15,6 +15,10 @@ public class Car implements Comparable<Car> {
         this.position = new Position();
     }
 
+    public String getName() {
+        return name;
+    }
+
     public Position getPosition() {
         return position;
     }

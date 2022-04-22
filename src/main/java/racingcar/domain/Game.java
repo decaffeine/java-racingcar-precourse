@@ -24,8 +24,8 @@ public class Game {
     }
 
     public void printResult() {
-        cars.getTheFarthest();
-        // TODO 우승자가 2명 이상일 경우
+        Cars winners = cars.getTheFarthest();
+        System.out.println("최종 우승자: " + winners.getNames());
     }
 
 }
