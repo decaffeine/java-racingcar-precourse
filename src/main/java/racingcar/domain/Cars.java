@@ -13,8 +13,8 @@ public class Cars {
         }
     }
 
-    public Car get(int location) {
-        return cars.get(location);
+    public Car get(int index) {
+        return cars.get(index);
     }
 
     public int size() {
