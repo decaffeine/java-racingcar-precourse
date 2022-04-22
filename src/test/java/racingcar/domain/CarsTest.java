@@ -31,7 +31,7 @@ public class CarsTest {
         cars.tryToMove(Arrays.asList(7, 5, 1));
         cars.tryToMove(Arrays.asList(8, 3, 1));
 
-        Cars winners = cars.getTheFastest();
+        Cars winners = cars.getTheFarthest();
         assertThat(winners.size()).isEqualTo(1);
         assertThat(winners.get(0).getPosition()).isEqualTo(new Position(3));
 
@@ -47,7 +47,7 @@ public class CarsTest {
         cars.tryToMove(Arrays.asList(7, 5, 1));
         cars.tryToMove(Arrays.asList(8, 9, 1));
 
-        Cars winners = cars.getTheFastest();
+        Cars winners = cars.getTheFarthest();
         assertThat(winners.size()).isEqualTo(2);
         assertThat(winners.get(1).getPosition()).isEqualTo(new Position(3));
 

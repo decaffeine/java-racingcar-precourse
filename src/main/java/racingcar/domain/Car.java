@@ -37,6 +37,10 @@ public class Car implements Comparable<Car> {
         return position.toString();
     }
 
+    public boolean isAtThePosition(Position comparison) {
+        return this.position.equals(comparison);
+    }
+
     private void validate(String name) {
         if (name.length() > MAX_NAME_LENGTH) {
             throw new IllegalArgumentException(ERROR_PREFIX + "이름은 5자 이하여야 합니다.");
