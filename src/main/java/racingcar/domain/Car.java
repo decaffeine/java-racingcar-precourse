@@ -4,19 +4,16 @@ import static racingcar.constant.Constant.ERROR_PREFIX;
 
 public class Car implements Comparable<Car> {
 
-    private static final int MAX_NAME_LENGTH = 5;
-
-    private final String name;
+    private final CarName name;
     private final Position position;
 
     public Car(String name) {
-        validate(name);
-        this.name = name;
+        this.name = new CarName(name);
         this.position = new Position();
     }
 
-    public String getName() {
-        return name;
+    public String getNameToString() {
+        return name.toString();
     }
 
     public Position getPosition() {
@@ -34,7 +31,7 @@ public class Car implements Comparable<Car> {
     }
 
     public void print() {
-        System.out.println(name + " : " + getPositionToString());
+        System.out.println(name.toString() + " : " + getPositionToString());
     }
 
     public String getPositionToString() {
@@ -43,12 +40,6 @@ public class Car implements Comparable<Car> {
 
     public boolean isAtThePosition(Position comparison) {
         return this.position.equals(comparison);
-    }
-
-    private void validate(String name) {
-        if (name.length() > MAX_NAME_LENGTH) {
-            throw new IllegalArgumentException(ERROR_PREFIX + "이름은 5자 이하여야 합니다.");
-        }
     }
 
     @Override
