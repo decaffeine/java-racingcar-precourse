@@ -11,7 +11,7 @@ public class PositionTest {
 
     @ParameterizedTest
     @MethodSource("getCompareValues")
-    void compare(int first, int second, int compareResult) {
+    void 위치_객체_상호비교(int first, int second, int compareResult) {
         Position one = new Position(first);
         Position two = new Position(second);
         assertThat(Position.compare(one, two)).isEqualTo(compareResult);

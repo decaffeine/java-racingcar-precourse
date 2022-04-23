@@ -17,7 +17,11 @@ public class Standard {
         return standard;
     }
 
-    public static int compare(Standard x, Standard y) {
+    public boolean isMovable() {
+        return compare(this, MOVING_STANDARD) >= 0;
+    }
+
+    private static int compare(Standard x, Standard y) {
         return Integer.compare(x.getValue(), y.getValue());
     }
 

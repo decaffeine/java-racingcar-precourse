@@ -2,12 +2,13 @@ package racingcar.domain;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 public class Cars {
     private List<Car> cars = new ArrayList<>();
+
+    public Cars() {}
 
     public Cars(List<String> carNames) {
         for (String name : carNames) {
@@ -15,8 +16,20 @@ public class Cars {
         }
     }
 
+    public static Cars createCarsFromList(List<Car> listCars) {
+        Cars cars = new Cars();
+        for(Car car : listCars) {
+            cars.add(car);
+        }
+        return cars;
+    }
+
     public Cars(Set<Car> carSet) {
         this.cars = new ArrayList<>(carSet);
+    }
+
+    public void add(Car car) {
+        this.cars.add(car);
     }
 
     public Car get(int index) {
@@ -56,14 +69,15 @@ public class Cars {
     }
 
     private Cars getCarsByPosition(Position position) {
-        Set<Car> result = new HashSet<>();
+        List<Car> result = new ArrayList<>();
         for (Car car : cars) {
             addCarIfIsAtThePosition(result, car, position);
         }
-        return new Cars(result);
+        return Cars.createCarsFromList(result);
     }
 
-    private void addCarIfIsAtThePosition(Set<Car> set, Car car, Position position) {
+
+    private void addCarIfIsAtThePosition(List<Car> set, Car car, Position position) {
         if (car.isAtThePosition(position)) {
             set.add(car);
         }

@@ -21,7 +21,7 @@ public class Car implements Comparable<Car> {
     }
 
     public void tryToMove(Standard standard) {
-        if (Standard.compare(standard, MOVING_STANDARD) >= 0) {
+        if (standard.isMovable()) {
             move();
         }
     }
