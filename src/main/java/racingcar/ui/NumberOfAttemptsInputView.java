@@ -2,10 +2,8 @@ package racingcar.ui;
 
 import static racingcar.constant.Constant.ERROR_PREFIX;
 
-import camp.nextstep.edu.missionutils.Console;
 import java.util.regex.Pattern;
 import racingcar.constant.InputStatus;
-import racingcar.domain.Cars;
 import racingcar.domain.NumberOfAttempts;
 
 public class NumberOfAttemptsInputView {
@@ -34,7 +32,7 @@ public class NumberOfAttemptsInputView {
         return null;
     }
 
-    private static void validateConsoleInput(String input) {
+    protected static void validateConsoleInput(String input) {
         if (!pattern.matcher(input).find()) {
             throw new IllegalArgumentException(ERROR_PREFIX + "시도 횟수는 숫자여야 합니다.");
         }

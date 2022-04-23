@@ -1,8 +1,5 @@
 package racingcar.domain;
 
-import java.util.List;
-import racingcar.util.RandomNumberUtil;
-
 public class Game {
     private final Cars cars;
     private final NumberOfAttempts numberOfAttempts;
@@ -17,7 +14,7 @@ public class Game {
     }
 
     public void race() {
-        Standards standards = RandomNumberUtil.getStandards(cars.size());
+        Standards standards = Standards.getStandardsByRandom(cars.size());
         cars.tryToMove(standards);
         cars.print();
         numberOfAttempts.subtract();
