@@ -26,6 +26,6 @@ public class CarTest {
         car.tryToMove(7);
         car.tryToMove(5);
         car.tryToMove(2);
-        assertThat(car.getPositionToString()).isEqualTo("--");
+        assertThat(car.getPosition().toString()).isEqualTo("--");
     }
 }

@@ -4,23 +4,39 @@ import static racingcar.constant.Constant.ERROR_PREFIX;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.regex.Pattern;
+import racingcar.constant.InputStatus;
+import racingcar.domain.Cars;
 import racingcar.domain.NumberOfAttempts;
 
 public class NumberOfAttemptsInputView {
 
     private static final Pattern pattern = Pattern.compile("^[0-9]*$");
+    private static InputStatus status = InputStatus.INPUT_IN_PROGRESS;
 
     public static NumberOfAttempts get() {
-        // TODO CarNameInputView와 유사함. 구조 재활용?
-        System.out.println("시도할 횟수는 몇 회인가요?");
-        String input = Console.readLine();
-        validate(input);
-        return new NumberOfAttempts(Integer.parseInt(input));
+        NumberOfAttempts attempts = null;
+        while (status.isContinue()) {
+            attempts = getNumberOfAttemptsFromInput();
+        }
+        return attempts;
     }
 
-    private static void validate(String input) {
+    private static NumberOfAttempts getNumberOfAttemptsFromInput() {
+        try {
+            String input = InputView.getConsoleInputWithMessage("시도 횟수: ");
+            validateConsoleInput(input);
+            status = InputStatus.INPUT_END;
+            return new NumberOfAttempts(Integer.parseInt(input));
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+            status = InputStatus.INPUT_IN_PROGRESS;
+        }
+        return null;
+    }
+
+    private static void validateConsoleInput(String input) {
         if (!pattern.matcher(input).find()) {
-            throw new IllegalArgumentException(ERROR_PREFIX + "시도할 횟수 입력은 숫자여야 합니다.");
+            throw new IllegalArgumentException(ERROR_PREFIX + "시도 횟수는 숫자여야 합니다.");
         }
     }
 

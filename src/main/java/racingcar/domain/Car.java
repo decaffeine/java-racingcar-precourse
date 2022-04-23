@@ -1,7 +1,5 @@
 package racingcar.domain;
 
-import static racingcar.constant.Constant.ERROR_PREFIX;
-
 public class Car implements Comparable<Car> {
 
     private final CarName name;
@@ -31,11 +29,7 @@ public class Car implements Comparable<Car> {
     }
 
     public void print() {
-        System.out.println(name.toString() + " : " + getPositionToString());
-    }
-
-    public String getPositionToString() {
-        return position.toString();
+        System.out.println(name + " : " + position);
     }
 
     public boolean isAtThePosition(Position comparison) {

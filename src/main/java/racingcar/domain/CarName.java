@@ -5,7 +5,7 @@ import static racingcar.constant.Constant.ERROR_PREFIX;
 public class CarName {
     private static final int MAX_NAME_LENGTH = 5;
 
-    private final String name; // TODO 생각해보기 이 문자열도 포장 ???
+    private final String name;
 
     public CarName(String name) {
         validate(name);
