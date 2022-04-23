@@ -1,6 +1,6 @@
 package racingcar.ui;
 
-import static racingcar.constant.Constant.ERROR_PREFIX;
+import static racingcar.constant.ErrorStatus.NUMBER_OF_ATTEMPTS_PATTERN_NOT_MATCHED;
 
 import java.util.regex.Pattern;
 import racingcar.constant.InputStatus;
@@ -34,7 +34,7 @@ public class NumberOfAttemptsInputView {
 
     protected static void validateConsoleInput(String input) {
         if (!pattern.matcher(input).find()) {
-            throw new IllegalArgumentException(ERROR_PREFIX + "시도 횟수는 숫자여야 합니다.");
+            throw new IllegalArgumentException(NUMBER_OF_ATTEMPTS_PATTERN_NOT_MATCHED.getMessage());
         }
     }
 

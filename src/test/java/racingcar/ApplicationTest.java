@@ -2,6 +2,7 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
+import racingcar.constant.ErrorStatus;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
@@ -30,6 +31,7 @@ class ApplicationTest extends NsTest {
             () -> {
                 runException("pobi,javaji");
                 assertThat(output()).contains(ERROR_MESSAGE);
+                assertThat(output()).contains(ErrorStatus.CAR_NAME_OVER_MAXIMUM_LENGTH.getMessage());
             }
         );
     }

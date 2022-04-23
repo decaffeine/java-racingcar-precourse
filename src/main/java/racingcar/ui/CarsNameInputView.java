@@ -1,6 +1,6 @@
 package racingcar.ui;
 
-import static racingcar.constant.Constant.ERROR_PREFIX;
+import static racingcar.constant.ErrorStatus.CAR_NAME_PATTERN_NOT_MATCHED;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -37,7 +37,7 @@ public class CarsNameInputView {
 
     private static void validateConsoleInput(String input) {
         if (!pattern.matcher(input).find()) {
-            throw new IllegalArgumentException(ERROR_PREFIX + "이름은 알파벳과 쉼표(,)로 구분된 입력이어야 합니다.");
+            throw new IllegalArgumentException(CAR_NAME_PATTERN_NOT_MATCHED.getMessage());
         }
     }
 

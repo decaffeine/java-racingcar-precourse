@@ -1,6 +1,6 @@
 package racingcar.ui;
 
-import static racingcar.constant.Constant.ERROR_PREFIX;
+import static racingcar.constant.ErrorStatus.INPUT_BLANK;
 
 import camp.nextstep.edu.missionutils.Console;
 
@@ -17,7 +17,7 @@ public class InputView {
 
     private static void validate(String line) {
         if (EMPTY_STRING.equals(line)) {
-            throw new IllegalArgumentException(ERROR_PREFIX + "입력은 공백일 수 없습니다.");
+            throw new IllegalArgumentException(INPUT_BLANK.getMessage());
         }
     }
 

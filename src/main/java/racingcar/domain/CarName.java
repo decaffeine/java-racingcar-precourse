@@ -1,6 +1,6 @@
 package racingcar.domain;
 
-import static racingcar.constant.Constant.ERROR_PREFIX;
+import static racingcar.constant.ErrorStatus.CAR_NAME_OVER_MAXIMUM_LENGTH;
 
 public class CarName {
     private static final int MAX_NAME_LENGTH = 5;
@@ -14,7 +14,7 @@ public class CarName {
 
     private void validate(String name) {
         if (name.length() > MAX_NAME_LENGTH) {
-            throw new IllegalArgumentException(ERROR_PREFIX + "이름은 5자 이하여야 합니다.");
+            throw new IllegalArgumentException(CAR_NAME_OVER_MAXIMUM_LENGTH.getMessage());
         }
     }
 

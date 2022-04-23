@@ -1,8 +1,11 @@
 package racingcar.domain;
 
-import static racingcar.constant.Constant.ERROR_PREFIX;
+import static racingcar.constant.ErrorStatus.STANDARD_OUT_OF_RANGE;
 
 public class Standard {
+
+    public final static Standard MOVING_STANDARD = new Standard(4);
+
     private final int standard;
 
     public Standard(int standard) {
@@ -20,7 +23,7 @@ public class Standard {
 
     private void validate(int standard) {
         if (standard < 0 || standard > 9) {
-            throw new IllegalArgumentException(ERROR_PREFIX + "전진 조건은 0-9 사이의 랜덤한 정수입니다.");
+            throw new IllegalArgumentException(STANDARD_OUT_OF_RANGE.getMessage());
         }
     }
 }

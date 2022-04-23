@@ -1,6 +1,6 @@
 package racingcar.domain;
 
-import static racingcar.constant.Constant.MOVING_STANDARD;
+import static racingcar.domain.Standard.MOVING_STANDARD;
 
 public class Car implements Comparable<Car> {
 
