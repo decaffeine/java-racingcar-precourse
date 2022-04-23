@@ -5,6 +5,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import org.junit.jupiter.api.Test;
 
 public class NumberOfAttemptsTest {
+
     @Test
     void 시도횟수_음수() {
         assertThatThrownBy(

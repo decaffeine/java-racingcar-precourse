@@ -17,8 +17,8 @@ public class Game {
     }
 
     public void race() {
-        List<Integer> randomStandards = RandomNumberUtil.getStandards(cars.size());
-        cars.tryToMove(randomStandards);
+        Standards standards = RandomNumberUtil.getStandards(cars.size());
+        cars.tryToMove(standards);
         cars.print();
         numberOfAttempts.subtract();
     }

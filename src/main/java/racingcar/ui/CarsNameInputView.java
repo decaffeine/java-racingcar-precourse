@@ -9,7 +9,7 @@ import java.util.regex.Pattern;
 import racingcar.constant.InputStatus;
 import racingcar.domain.Cars;
 
-public class CarNameInputView {
+public class CarsNameInputView {
 
     private static final Pattern pattern = Pattern.compile("^[a-zA-Z,]*$");
     private static InputStatus status = InputStatus.INPUT_IN_PROGRESS;

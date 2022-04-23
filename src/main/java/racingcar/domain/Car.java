@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import static racingcar.constant.Constant.MOVING_STANDARD;
+
 public class Car implements Comparable<Car> {
 
     private final CarName name;
@@ -18,8 +20,8 @@ public class Car implements Comparable<Car> {
         return position;
     }
 
-    public void tryToMove(int standard) {
-        if (standard >= 4) {
+    public void tryToMove(Standard standard) {
+        if (Standard.compare(standard, MOVING_STANDARD) >= 0) {
             move();
         }
     }

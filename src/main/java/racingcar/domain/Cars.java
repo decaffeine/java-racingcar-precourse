@@ -27,9 +27,9 @@ public class Cars {
         return cars.size();
     }
 
-    public void tryToMove(List<Integer> standards) {
+    public void tryToMove(Standards standards) {
         for (int i = 0; i < cars.size(); i++) {
-            int standard = standards.get(i);
+            Standard standard = standards.get(i);
             cars.get(i).tryToMove(standard);
         }
     }
