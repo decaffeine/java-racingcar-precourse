@@ -1,12 +1,21 @@
 package racingcar.domain;
 
+import static racingcar.constant.ErrorStatus.INVALID_CAR_OR_NUMBER;
+
 public class Game {
     private final Cars cars;
     private final NumberOfAttempts numberOfAttempts;
 
     public Game(Cars cars, NumberOfAttempts numberOfAttempts) {
+        validate(cars, numberOfAttempts);
         this.cars = cars;
         this.numberOfAttempts = numberOfAttempts;
+    }
+
+    private void validate(Cars cars, NumberOfAttempts numberOfAttempts) {
+        if (cars == null || numberOfAttempts == null) {
+            throw new IllegalArgumentException(INVALID_CAR_OR_NUMBER.getMessage());
+        }
     }
 
     public boolean isContinue() {
@@ -20,9 +29,8 @@ public class Game {
         numberOfAttempts.subtract();
     }
 
-    public void printResult() {
-        Cars winners = cars.getTheFarthest();
-        System.out.println("최종 우승자: " + winners.getNames());
+    public Cars getWinners() {
+        return cars.getTheFarthest();
     }
 
 }
