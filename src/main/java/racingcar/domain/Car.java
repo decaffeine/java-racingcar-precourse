@@ -27,8 +27,7 @@ public class Car implements Comparable<Car> {
     public boolean isAtThePosition(Position comparison) {
         return this.position.equals(comparison);
     }
-
-
+    
     public void print() {
         System.out.println(name + " : " + position);
     }

@@ -32,7 +32,7 @@ public class NumberOfAttemptsInputView {
         return null;
     }
 
-    protected static void validateConsoleInput(String input) {
+    private static void validateConsoleInput(String input) {
         if (!pattern.matcher(input).find()) {
             throw new IllegalArgumentException(NUMBER_OF_ATTEMPTS_PATTERN_NOT_MATCHED.getMessage());
         }
