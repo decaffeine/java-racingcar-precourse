@@ -16,9 +16,7 @@ public class Application {
         while (game.isContinue()) {
             game.race();
         }
-
         ResultView.printWinners(game);
     }
-
 
 }

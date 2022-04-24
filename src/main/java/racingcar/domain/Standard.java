@@ -21,13 +21,14 @@ public class Standard {
         return compare(this, MOVING_STANDARD) >= 0;
     }
 
-    private static int compare(Standard x, Standard y) {
-        return Integer.compare(x.getValue(), y.getValue());
-    }
-
     private void validate(int standard) {
         if (standard < 0 || standard > 9) {
             throw new IllegalArgumentException(STANDARD_OUT_OF_RANGE.getMessage());
         }
     }
+
+    private static int compare(Standard x, Standard y) {
+        return Integer.compare(x.getValue(), y.getValue());
+    }
+
 }

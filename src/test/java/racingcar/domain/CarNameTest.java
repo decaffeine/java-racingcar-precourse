@@ -18,7 +18,6 @@ public class CarNameTest {
         CarName name = new CarName("kirby");
     }
 
-
     @Test
     void 자동차_이름_4자() {
         CarName name = new CarName("ryan");

@@ -14,13 +14,14 @@ public class NumberOfAttempts {
         this.number--;
     }
 
+    public boolean areRemain() {
+        return number > 0;
+    }
+
     private void validate(int number) {
         if (number < 1) {
             throw new IllegalArgumentException(NUMBER_OF_ATTEMPTS_SMALLER_THAN_ONE.getMessage());
         }
     }
 
-    public boolean areRemain() {
-        return number > 0;
-    }
 }

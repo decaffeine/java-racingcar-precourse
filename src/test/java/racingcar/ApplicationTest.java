@@ -36,6 +36,28 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    @Test
+    void 이름_쉼표가_아닌_구분자() {
+        assertSimpleTest(
+                () -> {
+                    runException("pobi..ryan");
+                    assertThat(output()).contains(ERROR_MESSAGE);
+                    assertThat(output()).contains(ErrorStatus.CAR_NAME_PATTERN_NOT_MATCHED.getMessage());
+                }
+        );
+    }
+
+    @Test
+    void 입력이_공백() {
+        assertSimpleTest(
+                () -> {
+                    runException("\n");
+                    assertThat(output()).contains(ERROR_MESSAGE);
+                    assertThat(output()).contains(ErrorStatus.INPUT_BLANK.getMessage());
+                }
+        );
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});

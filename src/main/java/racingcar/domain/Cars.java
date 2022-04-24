@@ -3,12 +3,12 @@ package racingcar.domain;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Set;
 
 public class Cars {
     private List<Car> cars = new ArrayList<>();
 
-    public Cars() {}
+    public Cars() {
+    }
 
     public Cars(List<String> carNames) {
         for (String name : carNames) {
@@ -18,14 +18,10 @@ public class Cars {
 
     public static Cars createCarsFromList(List<Car> listCars) {
         Cars cars = new Cars();
-        for(Car car : listCars) {
+        for (Car car : listCars) {
             cars.add(car);
         }
         return cars;
-    }
-
-    public Cars(Set<Car> carSet) {
-        this.cars = new ArrayList<>(carSet);
     }
 
     public void add(Car car) {
@@ -47,21 +43,6 @@ public class Cars {
         }
     }
 
-    public String getNames() {
-        List<String> names = new ArrayList<>();
-        for (Car car : cars) {
-            names.add(car.getNameToString());
-        }
-        return String.join(",", names);
-    }
-
-    public void print() {
-        System.out.println();
-        for (Car car : cars) {
-            car.print();
-        }
-    }
-
     public Cars getTheFarthest() {
         cars.sort(Collections.reverseOrder());
         Position farthest = cars.get(0).getPosition();
@@ -76,10 +57,24 @@ public class Cars {
         return Cars.createCarsFromList(result);
     }
 
-
     private void addCarIfIsAtThePosition(List<Car> set, Car car, Position position) {
         if (car.isAtThePosition(position)) {
             set.add(car);
+        }
+    }
+
+    public String getNamesWithComma() {
+        List<String> names = new ArrayList<>();
+        for (Car car : cars) {
+            names.add(car.getNameToString());
+        }
+        return String.join(",", names);
+    }
+
+    public void print() {
+        System.out.println();
+        for (Car car : cars) {
+            car.print();
         }
     }
 

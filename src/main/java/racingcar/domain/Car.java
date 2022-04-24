@@ -1,7 +1,5 @@
 package racingcar.domain;
 
-import static racingcar.domain.Standard.MOVING_STANDARD;
-
 public class Car implements Comparable<Car> {
 
     private final CarName name;
@@ -10,10 +8,6 @@ public class Car implements Comparable<Car> {
     public Car(String name) {
         this.name = new CarName(name);
         this.position = new Position();
-    }
-
-    public String getNameToString() {
-        return name.toString();
     }
 
     public Position getPosition() {
@@ -30,12 +24,17 @@ public class Car implements Comparable<Car> {
         position.goForward();
     }
 
+    public boolean isAtThePosition(Position comparison) {
+        return this.position.equals(comparison);
+    }
+
+
     public void print() {
         System.out.println(name + " : " + position);
     }
 
-    public boolean isAtThePosition(Position comparison) {
-        return this.position.equals(comparison);
+    public String getNameToString() {
+        return name.toString();
     }
 
     @Override
